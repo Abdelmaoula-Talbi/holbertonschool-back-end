@@ -26,6 +26,6 @@ for j in response2.json() :
             list_of_completed_tasks.append(j.get('title'))
         total_tasks += 1
 
-print(f"Employee {name} is done with tasks({completed_tasks}/{total_tasks}):\n")
+print(f"Employee {name} is done with tasks({completed_tasks}/{total_tasks}):")
 for elem in list_of_completed_tasks:
     print(f"\t {elem}")
