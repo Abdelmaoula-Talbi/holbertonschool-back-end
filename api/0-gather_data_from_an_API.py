@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+""" script that, using this REST API, for a given employee ID,
+returns information about his/her TODO list progress."""
+
 import requests
 from sys import argv
 
@@ -8,9 +11,8 @@ elif argv[1].isdigit() is False:
     print("argument must be an integer")
 
 response1 = requests.get("https://jsonplaceholder.typicode.com/users")
-#print(response)
 
-for i in response1.json() :
+for i in response1.json():
     if i.get('id') == int(argv[1]):
         name = i.get('name')
 
@@ -19,9 +21,9 @@ response2 = requests.get("https://jsonplaceholder.typicode.com/todos")
 total_tasks = 0
 completed_tasks = 0
 list_of_completed_tasks = []
-for j in response2.json() :
+for j in response2.json():
     if j.get('userId') == int(argv[1]):
-        if j.get('completed') is True :
+        if j.get('completed') is True:
             completed_tasks += 1
             list_of_completed_tasks.append(j.get('title'))
         total_tasks += 1
