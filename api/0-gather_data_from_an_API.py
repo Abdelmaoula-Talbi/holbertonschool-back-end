@@ -19,17 +19,16 @@ if __name__ == "__main__":
 
     response2 = requests.get("https://jsonplaceholder.typicode.com/todos")
 
-    total_tasks = 0
-    completed_tasks = 0
+    total = 0
+    completed = 0
     list_of_completed_tasks = []
     for j in response2.json():
         if j.get('userId') == int(argv[1]):
             if j.get('completed') is True:
-                completed_tasks += 1
+                completed += 1
                 list_of_completed_tasks.append(j.get('title'))
-            total_tasks += 1
+            total += 1
 
-    print(f"Employee {name} is done with \
-          tasks({completed_tasks}/{total_tasks}):")
+    print(f"Employee {name} is done with tasks({completed}/{total}):")
     for elem in list_of_completed_tasks:
         print(f"\t {elem}")
