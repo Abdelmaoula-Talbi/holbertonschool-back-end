@@ -23,7 +23,8 @@ if __name__ == "__main__":
 
     for j in response2.json():
         if j.get('userId') == int(argv[1]):
-            my_dict = {'task': j.get('title'), 'completed': j.get('completed'), 'username': USERNAME}
+            my_dict = {'task': j.get('title'), 'completed': j.get('completed'),
+                       'username': USERNAME}
             my_list.append(my_dict)
     my_obj = {argv[1]: my_list}
     with open(f'{argv[1]}.json', 'w') as file:
